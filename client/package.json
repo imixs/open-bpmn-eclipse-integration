@@ -1,0 +1,37 @@
+{
+  "name": "parent",
+  "version": "1.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "all": "yarn install && yarn lint",
+    "build": "lerna run build && yarn copy:client",
+    "check:headers": "glsp checkHeaders ../../glsp-eclipse-integration -t lastCommit -f ts tsx java -e \"**/src-gen/**\"",
+    "check:pr": "yarn all && yarn check:headers",
+    "clean": "lerna run clean",
+    "copy:client": "copyfiles -f ./open-bpmn-webapp/app/* ../server/example/org.eclipse.glsp.ide.workflow.editor/diagram",
+    "lint": "lerna run lint",
+    "lint:ci": "lerna run lint:ci",
+    "prepare": "lerna run prepare && yarn copy:client",
+    "publish:latest": "lerna publish from-git --no-git-reset --no-git-tag-version --no-verify-access --no-push",
+    "publish:next": "SHA=$(git rev-parse --short HEAD) && lerna publish preminor --exact --canary --preid next.${SHA} --dist-tag next --no-git-reset --no-git-tag-version --no-push --ignore-scripts --yes --no-verify-access",
+    "publish:prepare": "lerna version --ignore-scripts --yes --no-push",
+    "upgrade:next": "yarn upgrade -p \"@eclipse-glsp.*|sprotty.*\" --next ",
+    "watch": "lerna run --parallel watch"
+  },
+  "devDependencies": {
+    "@eclipse-glsp/dev": "next",
+    "@types/node": "16.x",
+    "copyfiles": "^2.4.1",
+    "inversify": "6.0.1",
+    "lerna": "^6.6.2",
+    "typescript": "^5.1.3"
+  },
+  "engines": {
+    "node": ">=16.11.0",
+    "yarn": ">=1.7.0 <2.x.x"
+  }
+}
