@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: open-bpmn-eclipse-integration
+Bundle-SymbolicName: open-bpmn-eclipse-integration
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: open.bpmn.eclipse.integration

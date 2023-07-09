@@ -12,8 +12,8 @@
 
 
 	<modules>
-		<module>open-bpmn.eclipse.integration.editor</module>
-		<module>open-bpmn.eclipse.integration.target</module>
+		<module>open-bpmn.eclipse.editor</module>
+		<module>open-bpmn.eclipse.target</module>
 	</modules>
 			
 	<pluginRepositories>
