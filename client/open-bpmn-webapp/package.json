@@ -1,8 +1,7 @@
 {
-  "name": "@eclipse-glsp-examples/workflow-webapp",
-  "version": "1.1.0-next",
+  "name": "@open-bpmn/open-bpmn-eclipse-webapp",
   "private": true,
-  "description": "GLSP-based webapp for the Workflow example",
+  "description": "Open-BPMN webapp for Eclipse integration",
   "scripts": {
     "build": "tsc -b && webpack",
     "clean": "rimraf lib tsconfig.tsbuildinfo app/bundle.js app/bundle.js.map",
@@ -14,7 +13,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@eclipse-glsp-examples/workflow-glsp": "next",
+	"@open-bpmn/open-bpmn-glsp": "1.0.2",
     "@eclipse-glsp/ide": "^1.1.0-next"
   },
   "devDependencies": {
