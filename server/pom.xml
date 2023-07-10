@@ -42,9 +42,9 @@
 	</developers>
 
 	<scm>
-		<url>https://github.com/eclipse-glsp/glsp-examples</url>
-		<connection>scm:git@github.com:eclipse-glsp/glsp-examples.git</connection>
-		<developerConnection>scm:git@github.com:eclipse-glsp/glsp-examples.git</developerConnection>
+		<url>https://github.com/imixs/open-bpmn-eclipse-integration</url>
+		<connection>scm:git@github.com:imixs:/open-bpmn-eclipse-integration.git</connection>
+		<developerConnection>scm:git@github.com:imixs/open-bpmn-eclipse-integration.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 

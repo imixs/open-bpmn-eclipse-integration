@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: GLSP TaskList Example  Editor
+Bundle-Name: Open BPMN Eclipse Editor
 Bundle-SymbolicName: org.openbpmn.eclipse.integration.editor;singleton:=true
 Bundle-Version: 1.0.0
 Automatic-Module-Name: org.openbpmn.eclipse.integration.editor
