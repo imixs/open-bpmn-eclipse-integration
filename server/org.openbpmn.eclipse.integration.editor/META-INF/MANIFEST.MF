@@ -22,7 +22,8 @@ Require-Bundle: org.eclipse.elk.alg.common;bundle-version="0.5.0",
  org.eclipse.glsp.ide.editor;bundle-version="[1.0.0,2.0.0)",
  org.eclipse.ui.ide,
  org.eclipse.core.resources
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ lib/open-bpmn.server-1.0.2-SNAPSHOT-glsp.jar
 Eclipse-BundleShape: dir
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.openbpmn.eclipse.glsp.editor.Activator

@@ -12,7 +12,7 @@
     "check:headers": "glsp checkHeaders ../../glsp-eclipse-integration -t lastCommit -f ts tsx java -e \"**/src-gen/**\"",
     "check:pr": "yarn all && yarn check:headers",
     "clean": "lerna run clean",
-    "copy:client": "copyfiles -f ./open-bpmn-webapp/app/* ../server/example/org.eclipse.glsp.ide.workflow.editor/diagram",
+    "copy:client": "copyfiles -f ./open-bpmn-webapp/app/* ../server/org.openbpmn.eclipse.integration.editor/diagram",
     "lint": "lerna run lint",
     "lint:ci": "lerna run lint:ci",
     "prepare": "lerna run prepare && yarn copy:client",
