@@ -12,8 +12,8 @@
 
 
 	<modules>
-		<module>open-bpmn.eclipse.editor</module>
-		<module>open-bpmn.eclipse.target</module>
+		<module>open-bpmn.eclipse.integration.editor</module>
+		<module>open-bpmn.eclipse.integration.target</module>
 	</modules>
 			
 	<pluginRepositories>
@@ -157,9 +157,9 @@
 					</environments>
 					<target>
 						<artifact>
-							<groupId>org.eclipse.glsp.example</groupId>
-							<artifactId>org.eclipse.glsp.example.javaemf.parent</artifactId>
-							<classifier>org.eclipse.glsp.example.javaemf.target/r2021-03</classifier>
+							<groupId>org.imixs.bpmn</groupId>
+							<artifactId>open-bpmn.eclipse.integration.parent</artifactId>
+							<classifier>open-bpmn.eclipse.integration.target/r2021-03</classifier>
 							<version>${project.version}</version>
 						</artifact>
 					</target>

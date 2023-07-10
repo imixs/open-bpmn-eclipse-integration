@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.glsp.ide.editor">
+      <configuration
+            editorId="org.openbpmn.glsp.eclipse.integration.editor"
+            glspId="tasklist"
+            serverManagerClass="org.openbpmn.eclipse.glsp.editor.TaskListServerManager">
+      </configuration>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.openbpmn.eclipse.glsp.editor.TaskListEditor"
+            contributorClass="org.eclipse.glsp.ide.editor.ui.GLSPDiagramEditorActionContributor"
+            default="true"
+            extensions="tasklist"
+            id="org.openbpmn.eclipse.glsp.editor"
+            name="TaskList Diagram Editor">
+      </editor>
+   </extension>
+</plugin>
