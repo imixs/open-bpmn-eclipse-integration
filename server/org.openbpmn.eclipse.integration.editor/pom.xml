@@ -6,11 +6,11 @@
 
 	<parent>
 		<groupId>org.imixs.bpmn</groupId>
-		<artifactId>open-bpmn.eclipse.integration.parent</artifactId>
+		<artifactId>org.openbpmn.eclipse.integration.parent</artifactId>
 		<version>1.0.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>open-bpmn.eclipse.integration.editor</artifactId>
+	<artifactId>org.openbpmn.eclipse.integration.editor</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
 

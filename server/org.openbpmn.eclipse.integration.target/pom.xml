@@ -9,7 +9,7 @@
 
 
 	<groupId>org.imixs.bpmn</groupId>
-	<artifactId>open-bpmn.eclipse.integration.target</artifactId>
+	<artifactId>org.openbpmn.eclipse.integration.target</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 

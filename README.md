@@ -34,8 +34,7 @@ To build the server run:
 The server/editor part consists of a set of [Eclipse](https://www.eclipse.org/ide/) plugins that have to be imported into your Eclipse IDE workspace.
 Open an Eclipse instance and workspace of your choice then open the import menu (`File -> Import...`).
 Choose `Maven -> Existing Maven Projects` and click `Next >`.
-Select the parent directory of this README as `Root Directory`. Make sure that all
-projects are selected and click finish.
+Select the '/server/' directory as the `Root Directory`. Make sure that all projects are selected and click finish.
 
 To resolve all compilation errors you have to set the correct target platform.
 Got to the preferences (`Window -> Preferences`) and navigate to the target platform options (`Plug-in Development -> Target Platform`)-
@@ -71,7 +70,7 @@ Or you can use the available VS Code tasks configured in the [glsp-client](glsp-
 ## Running/Debugging 
 
 To test the Open-BPMN Eclipse Integration a launch configuration is provided. In your [Eclipse Workspace](#eclipse-workspace) navigate to the
-`open-bpmn.eclipse.editor` plugin. Start or debug the project by via right-clicking on the `Open-BPMN.launch` file (`Run as -> Open-BPMN`).
+`org.openbpmn.eclipse.integration.editor` plugin. Start or debug the project by via right-clicking on the `Open-BPMN.launch` file (`Run as -> Open-BPMN`).
 
 This opens a second instance of Eclipse, which has the GLSP task list editor plugins preinstalled.
 Import the provided [`example project`](glsp-server/workspace/TaskListExample/) into this workspace and double click on the `example.tasklist` file to open the diagram editor.

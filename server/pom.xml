@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.imixs.bpmn</groupId>
-	<artifactId>open-bpmn.eclipse.integration.parent</artifactId>
+	<artifactId>org.openbpmn.eclipse.integration.parent</artifactId>
 	<description>Open BPMN - Eclipse Integration</description>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
@@ -12,8 +12,8 @@
 
 
 	<modules>
-		<module>open-bpmn.eclipse.integration.editor</module>
-		<module>open-bpmn.eclipse.integration.target</module>
+		<module>org.openbpmn.eclipse.integration.editor</module>
+		<module>org.openbpmn.eclipse.integration.target</module>
 	</modules>
 			
 	<pluginRepositories>
@@ -158,8 +158,8 @@
 					<target>
 						<artifact>
 							<groupId>org.imixs.bpmn</groupId>
-							<artifactId>open-bpmn.eclipse.integration.parent</artifactId>
-							<classifier>open-bpmn.eclipse.integration.target/r2021-03</classifier>
+							<artifactId>org.openbpmn.eclipse.integration.parent</artifactId>
+							<classifier>org.openbpmn.eclipse.integration.target/r2021-03</classifier>
 							<version>${project.version}</version>
 						</artifact>
 					</target>
