@@ -27,13 +27,13 @@ import org.eclipse.glsp.ide.editor.di.IdeServerModule;
 import org.eclipse.glsp.server.di.ServerModule;
 import org.eclipse.jetty.server.Server;
 
-public class TaskListServerManager extends GLSPServerManager {
+public class OpenBPMNServerManager extends GLSPServerManager {
 
-   public TaskListServerManager() {}
+   public OpenBPMNServerManager() {}
 
    @Override
    public ServerModule configureServerModule() {
-      return new IdeServerModule().configureDiagramModule(new TaskListEclipseDiagramModule());
+      return new IdeServerModule().configureDiagramModule(new OpenBPMNEclipseDiagramModule());
    }
 
    @Override
@@ -46,5 +46,5 @@ public class TaskListServerManager extends GLSPServerManager {
    }
 
    @Override
-   public String getGlspId() { return "tasklist"; }
+   public String getGlspId() { return "openbpmn"; }
 }

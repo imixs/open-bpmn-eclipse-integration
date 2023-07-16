@@ -22,7 +22,7 @@ import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 
-public class TaskListEditor extends GLSPDiagramEditor {
+public class OpenBPMNEditor extends GLSPDiagramEditor {
 
    @Override
    protected Browser createBrowser(final Composite parent) {

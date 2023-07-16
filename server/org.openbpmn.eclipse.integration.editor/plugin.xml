@@ -5,19 +5,21 @@
          point="org.eclipse.glsp.ide.editor">
       <configuration
             editorId="org.openbpmn.eclipse.integration.editor"
-            glspId="tasklist"
-            serverManagerClass="org.openbpmn.eclipse.glsp.editor.TaskListServerManager">
+            glspId="openbpmn"
+            serverManagerClass="org.openbpmn.eclipse.glsp.editor.OpenBPMNServerManager">
       </configuration>
    </extension>
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="org.openbpmn.eclipse.glsp.editor.TaskListEditor"
+            class="org.openbpmn.eclipse.glsp.editor.OpenBPMNEditor"
             contributorClass="org.eclipse.glsp.ide.editor.ui.GLSPDiagramEditorActionContributor"
             default="true"
-            extensions="tasklist"
-            id="org.openbpmn.eclipse.glsp.editor"
-            name="TaskList Diagram Editor">
+            extensions="bpmn"
+            id="org.openbpmn.eclipse.integration.editor"
+            name="Open-BPMN Diagram Editor">
       </editor>
    </extension>
+   
+
 </plugin>
