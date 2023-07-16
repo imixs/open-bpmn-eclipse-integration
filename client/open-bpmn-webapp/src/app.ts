@@ -36,8 +36,10 @@ const filePath = urlParameters.path;
 // and/or Eclipse Servers may be running in parallel (e.g. 1/Eclipse IDE)
 const port = parseInt(urlParameters.port, 10);
 const applicationId = urlParameters.application;
-const id = 'workflow';
-const diagramType = 'workflow-diagram';
+//const id = 'workflow';
+// const id = 'glsp.bpmn';
+const id = 'openbpmn';
+const diagramType = 'bpmn-diagram';
 
 const clientId = urlParameters.client || ApplicationIdProvider.get();
 const widgetId = urlParameters.widget || clientId;
