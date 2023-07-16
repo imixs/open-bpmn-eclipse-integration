@@ -36,8 +36,6 @@ const filePath = urlParameters.path;
 // and/or Eclipse Servers may be running in parallel (e.g. 1/Eclipse IDE)
 const port = parseInt(urlParameters.port, 10);
 const applicationId = urlParameters.application;
-//const id = 'workflow';
-// const id = 'glsp.bpmn';
 const id = 'openbpmn';
 const diagramType = 'bpmn-diagram';
 
@@ -69,7 +67,7 @@ async function initialize(connectionProvider: MessageConnection): Promise<void> 
             // See also https://en.wikipedia.org/wiki/Query_string#URL_encoding for URL encoding in forms vs generic URL encoding.
             options: {
                 sourceUri: 'file://' + decodeURI(filePath.replace(/\+/g, '%20')),
-                diagramType: 'workflow-diagram'
+                diagramType: 'bpmn-diagram'
             }
         })
     );

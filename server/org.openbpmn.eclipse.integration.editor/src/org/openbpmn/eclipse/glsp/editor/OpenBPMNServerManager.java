@@ -52,8 +52,8 @@ public class OpenBPMNServerManager extends GLSPServerManager {
    @Override
    public String getGlspId() {
       //
-      // String id = "openbpmn";
-      String id = "glsp.bpmn";
+      String id = "openbpmn";
+      // String id = "glsp.bpmn";
       System.out.println("glspId=" + id);
       return id;
    }

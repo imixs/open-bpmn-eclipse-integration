@@ -28,6 +28,7 @@ import org.eclipse.glsp.ide.editor.actions.handlers.IdeSetMarkersActionHandler;
 import org.eclipse.glsp.ide.editor.actions.handlers.InitializeCanvasBoundsActionHandler;
 import org.eclipse.glsp.ide.editor.actions.handlers.SetClipboardDataActionHandler;
 import org.eclipse.glsp.ide.editor.di.IdeActionDispatcher;
+import org.eclipse.glsp.ide.editor.gmodel.operations.IdeGModelPasteOperationHandler;
 import org.eclipse.glsp.ide.editor.initialization.DefaultModelInitializationConstraint;
 import org.eclipse.glsp.ide.editor.initialization.ModelInitializationConstraint;
 import org.eclipse.glsp.server.actions.Action;
@@ -38,6 +39,8 @@ import org.eclipse.glsp.server.actions.ServerStatusAction;
 import org.eclipse.glsp.server.actions.SetDirtyStateAction;
 import org.eclipse.glsp.server.di.MultiBinding;
 import org.eclipse.glsp.server.features.navigation.NavigateToExternalTargetAction;
+import org.eclipse.glsp.server.gmodel.GModelPasteOperationHandler;
+import org.eclipse.glsp.server.operations.OperationHandler;
 import org.openbpmn.glsp.BPMNDiagramModule;
 
 import com.google.inject.Scopes;
@@ -66,12 +69,12 @@ public class OpenBPMNEclipseDiagramModule extends BPMNDiagramModule {
       bindings.add(InitializeCanvasBoundsActionHandler.class);
    }
 
-   // @Override
-   // protected void configureOperationHandlers(final MultiBinding<OperationHandler> bindings) {
-   // super.configureOperationHandlers(bindings);
-   // bindings.remove(GModelPasteOperationHandler.class);
-   // bindings.add(IdeGModelPasteOperationHandler.class);
-   // }
+   @Override
+   protected void configureOperationHandlers(final MultiBinding<OperationHandler> bindings) {
+      super.configureOperationHandlers(bindings);
+      bindings.remove(GModelPasteOperationHandler.class);
+      bindings.add(IdeGModelPasteOperationHandler.class);
+   }
 
    @Override
    protected void configureClientActions(final MultiBinding<Action> bindings) {

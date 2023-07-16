@@ -27,6 +27,9 @@ public class OpenBPMNEditor extends GLSPDiagramEditor {
    @Override
    protected Browser createBrowser(final Composite parent) {
       Browser browser = new FocusAwareBrowser(parent, SWT.NO_SCROLL | SWT.EDGE);
+
+      browser.setJavascriptEnabled(true);
+
       browser.setLayoutData(new GridData(GridData.FILL, GridData.FILL, true, true));
       toDispose.add(browser::dispose);
       return browser;
