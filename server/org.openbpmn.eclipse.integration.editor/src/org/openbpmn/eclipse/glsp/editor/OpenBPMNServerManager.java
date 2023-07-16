@@ -37,7 +37,11 @@ public class OpenBPMNServerManager extends GLSPServerManager {
    }
 
    @Override
-   public URL getResourceURL() { return Activator.getDefault().getBundle().getResource("diagram"); }
+   public URL getResourceURL() {
+      //
+
+      return Activator.getDefault().getBundle().getResource("diagram");
+   }
 
    @Override
    protected void configure(final Server server)
@@ -46,5 +50,11 @@ public class OpenBPMNServerManager extends GLSPServerManager {
    }
 
    @Override
-   public String getGlspId() { return "openbpmn"; }
+   public String getGlspId() {
+      //
+      // String id = "openbpmn";
+      String id = "glsp.bpmn";
+      System.out.println("glspId=" + id);
+      return id;
+   }
 }
