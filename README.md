@@ -74,3 +74,40 @@ To test the Open-BPMN Eclipse Integration a launch configuration is provided. In
 
 This opens a second instance of Eclipse, which has the GLSP task list editor plugins preinstalled.
 Import the provided [`example project`](glsp-server/workspace/TaskListExample/) into this workspace and double click on the `example.tasklist` file to open the diagram editor.
+
+
+
+
+# Logfiles
+
+During development you may run into several problems needed to be analyzed and debugged. If you have the Editor Plugin already with your lauch configuration a good place to analyze errors is to view the local error log from the launched workspace. To to so open in your launched eclipse ide
+
+_Eclipse IDE: Window -> Show View -> Other -> General -> Error Log._
+
+This will open the current error log.
+
+Another place to finde log files is the runtime folder used by your launch configuration - e.g.:
+
+	~/runtime-OpenBPMNEditor$
+
+# Debug
+
+To debug the web module you can intall and start it in a local dev server:
+
+1.)  Install a local development server:
+
+If not yet done install a web server: In your project's  directory `/open-bpmn-eclipse-integration/server/org.openbpmn.eclipse.integration.editor/diagram/` run the following command to install a simple HTTP server called http-server:
+
+	npm install http-server -g
+
+2.) Start the local development server:
+
+From your project's  directory `/open-bpmn-eclipse-integration/server/org.openbpmn.eclipse.integration.editor/diagram/` run
+ 
+	$ http-server
+
+The server will start running and provide you with a local URL where you can access your GLSP diagram app
+
+	http://localhost:8080/diagram.html
+
+Now you can test your Node.js app bundled with Webpack in the local development server. Any changes you make to your code will require rebuilding the bundle using Webpack and refreshing the page in the browser to see the updated results.

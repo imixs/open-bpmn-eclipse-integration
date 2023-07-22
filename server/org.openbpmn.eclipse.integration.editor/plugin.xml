@@ -12,7 +12,7 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="org.openbpmn.eclipse.glsp.editor.OpenBPMNEditor"
+            class="org.eclipse.glsp.ide.editor.ui.GLSPDiagramEditor"
             contributorClass="org.eclipse.glsp.ide.editor.ui.GLSPDiagramEditorActionContributor"
             default="true"
             extensions="bpmn"
@@ -20,6 +20,162 @@
             name="Open-BPMN Diagram Editor">
       </editor>
    </extension>
-   
-
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.glsp.workflow.editor">
+         <separator
+               name="org.eclipse.glsp.integration.workflow.editor.edit_start" visible="true">
+         </separator>
+         <command
+               commandId="org.eclipse.ui.edit.copy"
+               style="push">
+         </command>
+         <command
+               commandId="org.eclipse.ui.edit.cut"
+               style="push">
+         </command>
+         <command
+               commandId="org.eclipse.ui.edit.paste"
+               style="push">
+         </command>
+         <separator
+               name="org.eclipse.glsp.integration.workflow.editor.edit_end">
+         </separator>
+         <separator
+               name="org.eclipse.glsp.integration.workflow.editor.navigate_start" visible="true">
+         </separator>
+         <command
+              commandId="org.eclipse.glsp.ide.workflow.editor.navigate.next-node"
+              style="push">
+        </command>
+         <dynamic
+               class="org.eclipse.glsp.ide.editor.ui.GLSPDynamicContribution"
+               id="org.eclipse.glsp.ide.editor.actionprovider">
+         </dynamic>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.glsp.ide.diagram">
+         <menu
+               label="Navigate">
+            <command
+                  commandId="org.eclipse.glsp.ide.workflow.editor.navigate.next-node"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.glsp.ide.workflow.editor.navigate.previous-node"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.glsp.ide.workflow.editor.navigate.documentation"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.eclipse.glsp.ide.workflow.editor.navigate.by-name"
+                  style="push">
+            </command>
+            <visibleWhen
+                  checkEnabled="false">
+             <with
+                   variable="activePartId">
+                <equals
+                      value="org.eclipse.glsp.workflow.editor">
+                </equals>
+             </with>
+            </visibleWhen>
+         </menu>
+         <command
+               commandId="org.eclipse.glsp.ide.workflow.editor.external.debug"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activePartId">
+                  <equals
+                        value="org.eclipse.glsp.workflow.editor">
+                  </equals>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="org.eclipse.glsp.ide.diagram"
+               label="Diagram">
+            <command
+                  commandId="org.eclipse.glsp.diagram.export"
+                  icon="icons/export.gif"
+                  label="SVG Export"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeEditor">
+                     <instanceof
+                           value="org.eclipse.glsp.ide.editor.ui.GLSPDiagramEditor">
+                     </instanceof>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+	<extension
+          point="org.eclipse.ui.bindings">
+       <key
+             commandId="org.eclipse.glsp.diagram.export"
+             contextId="org.eclipse.ui.contexts.window"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="A">
+       </key>
+    </extension>
+      <extension
+          point="org.eclipse.ui.commands">
+       <command
+             categoryId="org.eclipse.glsp"
+             defaultHandler="org.eclipse.glsp.ide.workflow.editor.NavigateToNextNodeHandler"
+             description="Navigates to the next Task node"
+             id="org.eclipse.glsp.ide.workflow.editor.navigate.next-node"
+             name="Go to Next Node">
+       </command>
+       <command
+             categoryId="org.eclipse.glsp"
+             defaultHandler="org.eclipse.glsp.ide.workflow.editor.NavigateToPreviousNodeHandler"
+             description="Navigates to the previous Task node"
+             id="org.eclipse.glsp.ide.workflow.editor.navigate.previous-node"
+             name="Go to Previous Node">
+       </command>
+       <command
+             categoryId="org.eclipse.glsp"
+             defaultHandler="org.eclipse.glsp.ide.workflow.editor.NavigateToNodeDocumentationHandler"
+             description="Navigates to the documentation"
+             id="org.eclipse.glsp.ide.workflow.editor.navigate.documentation"
+             name="Go to Documentation">
+       </command>
+       <command
+             categoryId="org.eclipse.glsp"
+             defaultHandler="org.eclipse.glsp.ide.workflow.editor.NavigateToNodeByNameHandler"
+             description="Navigates to the task with the given name"
+             id="org.eclipse.glsp.ide.workflow.editor.navigate.by-name"
+             name="Go to Task by Name">
+       </command>
+       <command
+             categoryId="org.eclipse.glsp"
+             defaultHandler="org.eclipse.glsp.ide.editor.handlers.ExternalBrowserDebugHandler"
+             description="Debug Diagram in external browser"
+             id="org.eclipse.glsp.ide.workflow.editor.external.debug"
+             name="Debug (External Browser)">
+       </command>
+       <command
+            categoryId="org.eclipse.glsp"
+            defaultHandler="org.eclipse.glsp.ide.editor.handlers.ExportDiagramHandler"
+            description="Export this diagram to SVG"
+            id="org.eclipse.glsp.diagram.export"
+            name="Export Diagram">
+      </command>
+	</extension>
 </plugin>

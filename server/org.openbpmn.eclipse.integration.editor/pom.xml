@@ -3,18 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
+	<artifactId>org.openbpmn.eclipse.integration.editor</artifactId>
+	<packaging>eclipse-plugin</packaging>
 	<parent>
 		<groupId>org.imixs.bpmn</groupId>
 		<artifactId>org.openbpmn.eclipse.integration.parent</artifactId>
 		<version>1.0.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>org.openbpmn.eclipse.integration.editor</artifactId>
-	<packaging>eclipse-plugin</packaging>
-
-
-
 
 	<url>https://www.eclipse.org/glsp</url>
 	<licenses>
