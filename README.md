@@ -16,10 +16,6 @@ The client contains the webapp in the folder `open-bpmn-webapp` . To build the c
 	$ cd client/
 	$ yarn
 
-**Note:** To build the client you need a modern version of node.js. To upgrade the node.js version for the build only you can run:
-
-	$ nvm install node --reinstall-packages-from=node
-	
 	
 ## The Server 
 
