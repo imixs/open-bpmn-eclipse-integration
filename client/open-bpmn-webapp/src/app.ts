@@ -13,19 +13,12 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-import {
-    BaseJsonrpcGLSPClient,
-    CenterAction,
-    configureServerActions,
-    EnableToolPaletteAction,
-    GLSPActionDispatcher,
-    GLSPDiagramServer,
-    RequestModelAction,
-    RequestTypeHintsAction,
-    TYPES
-} from '@eclipse-glsp/client';
+import 'reflect-metadata';
+
+import { BaseJsonrpcGLSPClient, DiagramLoader, GLSPActionDispatcher, GLSPWebSocketProvider, TYPES } from '@eclipse-glsp/client';
 import { getParameters } from '@eclipse-glsp/ide';
-import { ApplicationIdProvider, GLSPClient, listen } from '@eclipse-glsp/protocol';
+import { ApplicationIdProvider, GLSPClient, MessageAction, StatusAction } from '@eclipse-glsp/protocol';
+import { Container } from 'inversify';
 import { MessageConnection } from 'vscode-jsonrpc';
 import createContainer from './di.config';
 
@@ -42,38 +35,47 @@ const diagramType = 'bpmn-diagram';
 const clientId = urlParameters.client || ApplicationIdProvider.get();
 const widgetId = urlParameters.widget || clientId;
 setWidgetId(widgetId);
-const container = createContainer(widgetId);
 
-const diagramServer = container.get<GLSPDiagramServer>(TYPES.ModelSource);
-diagramServer.clientId = clientId;
+const webSocketUrl = `ws://localhost:${port}/${id}`;
 
-const websocket = new WebSocket(`ws://localhost:${port}/${id}`);
-listen(websocket, connection => initialize(connection));
+let glspClient: GLSPClient;
+let container: Container;
+const wsProvider = new GLSPWebSocketProvider(webSocketUrl);
 
-async function initialize(connectionProvider: MessageConnection): Promise<void> {
-    const client = new BaseJsonrpcGLSPClient({ id, connectionProvider });
-    await diagramServer.connect(client);
-    const result = await client.initializeServer({
-        applicationId,
-        protocolVersion: GLSPClient.protocolVersion
+wsProvider.listen({ onConnection: initialize, onReconnect: reconnect, logger: console });
+
+async function initialize(connectionProvider: MessageConnection, isReconnecting = false): Promise<void> {
+    glspClient = new BaseJsonrpcGLSPClient({ id, connectionProvider });
+
+    // Java's URLEncoder.encode encodes spaces as plus sign but decodeURI expects spaces to be encoded as %20.
+    // See also https://en.wikipedia.org/wiki/Query_string#URL_encoding for URL encoding in forms vs generic URL encoding.
+    const sourceUri = 'file://' + decodeURI(filePath.replace(/\+/g, '%20'));
+
+    const glspClientProvider: () => Promise<GLSPClient> = async () => glspClient;
+
+    container = createContainer({ clientId, diagramType, glspClientProvider, sourceUri });
+
+    const diagramLoader = container.get(DiagramLoader);
+    await diagramLoader.load({
+        requestModelOptions: { isReconnecting },
+        initializeParameters: { applicationId },
+        enableNotifications: false
     });
-    await configureServerActions(result, diagramType, container);
 
-    await client.initializeClientSession({ clientSessionId: diagramServer.clientId, diagramType });
-    const actionDispatcher = container.get<GLSPActionDispatcher>(TYPES.IActionDispatcher);
-    actionDispatcher.dispatch(
-        RequestModelAction.create({
-            // Java's URLEncoder.encode encodes spaces as plus sign but decodeURI expects spaces to be encoded as %20.
-            // See also https://en.wikipedia.org/wiki/Query_string#URL_encoding for URL encoding in forms vs generic URL encoding.
-            options: {
-                sourceUri: 'file://' + decodeURI(filePath.replace(/\+/g, '%20')),
-                diagramType: 'bpmn-diagram'
-            }
-        })
-    );
-    actionDispatcher.dispatch(RequestTypeHintsAction.create());
-    actionDispatcher.dispatch(EnableToolPaletteAction.create());
-    actionDispatcher.onceModelInitialized().then(() => actionDispatcher.dispatch(CenterAction.create([])));
+    const actionDispatcher: GLSPActionDispatcher = container.get<GLSPActionDispatcher>(TYPES.IActionDispatcher);
+
+    if (isReconnecting) {
+        const message = `Connection to the ${id} glsp server got closed. Connection was successfully re-established.`;
+        const timeout = 5000;
+        const severity = 'WARNING';
+        actionDispatcher.dispatchAll([StatusAction.create(message, { severity, timeout }), MessageAction.create(message, { severity })]);
+        return;
+    }
+}
+
+async function reconnect(connectionProvider: MessageConnection): Promise<void> {
+    glspClient.stop();
+    initialize(connectionProvider, true /* isReconnecting */);
 }
 
 function setWidgetId(mainWidgetId: string): void {
