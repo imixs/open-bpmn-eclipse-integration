@@ -22,7 +22,8 @@ import { ConsoleLogger, IDiagramOptions, LogLevel, TYPES, bindOrRebind, createDi
 import { ECLIPSE_DEFAULT_MODULE_CONFIG } from '@eclipse-glsp/ide';
 
 import { Container } from 'inversify';
-import '../css/diagram.css';
+//import '../css/diagram.css';
+import '../css/bpmn-eclipse.css';
 
 // export default function createContainer(widgetId: string): Container {
 //     const container = createBPMNDiagramContainer(widgetId);

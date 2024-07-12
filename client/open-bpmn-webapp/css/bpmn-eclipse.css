@@ -1,0 +1,92 @@
+.sprotty-edge {
+    stroke: black;
+}
+
+.sprotty-edge.arrow {
+    fill: black;
+}
+
+.bpmn-grid-line {
+    stroke: #dddddd;
+}
+
+.helper-line {
+    stroke: #0090f1;
+    stroke-width: 0.5;
+}
+
+
+
+.bpmn-property-panel {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* theia-editorWidget-background */
+.bpmn-property-header {
+    background: #dddddd;
+    color: #333;
+    border-top: 3px solid #0090f1;
+}
+
+
+
+.bpmn-property-header .header-tools i:hover:not(.clicked) {
+    background: rgba(184, 184, 184, 0.31);
+}
+
+
+
+.bpmn-properties-body .categorization-master {
+    background: #dddddd;
+}
+
+.categorization>.categorization-master ul li.selected>span {
+    color: var(--theia-sideBar-foreground);
+    background: #f3f3f3;
+}
+
+
+
+/* Button layout in property details block */
+.bpmn-properties-body .categorization-detail button {
+    color: var(--theia-button-foreground);
+    background-color: #007acc;
+
+}
+
+.bpmn-properties-body .categorization-detail button:focus {
+    outline: 1px solid #0090f1;
+}
+
+.bpmn-properties-body .categorization-detail button:hover {
+    background-color: #0062a3;
+}
+
+
+
+
+.bpmn-properties-body .control.text-file-editor>label .file-selector {
+    color: #0090f1;
+}
+
+
+
+.input-description {
+    color: #666;
+
+}
+
+
+.categorization>.categorization-master {
+    background: #fff;
+  }
+  
+  .categorization>.categorization-master ul>li>span:hover {
+    background: #eae8e6;
+  }
+  
+  .categorization>.categorization-master ul>li.selected>span {
+    background: #f6f5f4;
+    color: black;
+  }
