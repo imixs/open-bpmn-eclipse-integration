@@ -15,17 +15,13 @@
  ********************************************************************************/
 package org.openbpmn.eclipse.glsp.editor;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 
-import javax.servlet.ServletException;
-import javax.websocket.DeploymentException;
-
+import org.eclipse.glsp.server.di.ServerModule;
+import org.eclipse.elk.alg.layered.options.LayeredMetaDataProvider;
 import org.eclipse.glsp.ide.editor.GLSPServerManager;
 import org.eclipse.glsp.ide.editor.di.IdeServerModule;
-import org.eclipse.glsp.server.di.ServerModule;
-import org.eclipse.jetty.server.Server;
+import org.eclipse.glsp.layout.ElkLayoutEngine;
 
 public class OpenBPMNServerManager extends GLSPServerManager {
 
@@ -43,10 +39,10 @@ public class OpenBPMNServerManager extends GLSPServerManager {
       return Activator.getDefault().getBundle().getResource("diagram");
    }
 
+
    @Override
-   protected void configure(final Server server)
-      throws URISyntaxException, IOException, ServletException, DeploymentException {
-      super.configure(server);
+   protected void preConfigure() {
+      ElkLayoutEngine.initialize(new LayeredMetaDataProvider());
    }
 
    @Override
