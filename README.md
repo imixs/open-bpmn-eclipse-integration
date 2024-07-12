@@ -3,9 +3,43 @@
 This project provides a Eclipse plugin to run [Open-BPMN](https://github.com/imixs/open-bpmn) in a Eclipse IDE. 
 This implementation is based on the [Eclipse GLSP - Project Template](https://github.com/eclipse-glsp/glsp-examples/tree/master/project-templates/java-emf-eclipse). You will find more details there as also in the [Eclipse GLSP Eclipse IDE Integration project](https://github.com/eclipse-glsp/glsp-eclipse-integration).
 
-The Open-BPMN Eclipse project is split into a client and a server part.
 
-## The Client
+# Development Setup
+
+The following section is important if you plan to develop the Open-BPMN Eclipse Plugin or contribute to the project. If you just want to use Open-BPMN in your Eclipse IDE see the [Open-BPMN Website](https://www.open-bpmn.org)
+
+To develop and build the Eclipse Plugin you need to setup your Eclipse Workspace first.  
+
+## Import the glsp-eclipse-integration project
+
+First you need to checkout the version 2.1.0 from the  [Eclipse GLSP Eclipse IDE Integration project from Github](https://github.com/eclipse-glsp/glsp-eclipse-integration)
+
+Switch into the `/server/` directory and build the project with maven
+
+	$ mvn clean install
+
+Next you can start a new empty Eclipse Workspace and import the following two project form the Eclipse GLSP Eclipse IDE Integration project.
+
+	- server/plugins/org.eclipse.glsp.ide.editor
+	- server/releng/org.eclipse.glsp.ide.releng.target
+
+This part provides the integration code and the target definition needed to build the Open-BPMN Eclipse Integration later. 
+
+## Setup Your Target Platform
+
+Now open the target platform definition `org.eclipse.glsp.ide.releng.target/r2023-09.target` and set it as your target platform. 
+
+## Import Open BPMN Eclipse Integration
+
+Next checkout this project form [Github](https://github.com/imixs/open-bpmn-eclipse-integration). The Open-BPMN Eclipse project is split into a client and a server part. Both parts need to be build before you can start importing the projects into your Eclipse IDE.
+
+You can run the build script for Linux with:
+
+	$ ./build.sh
+
+...or you can build the client and server part manually: 
+
+### The Client
 
 The client component is built with `yarn`. The client contains the webapp in the folder `open-bpmn-webapp` . To build the client run:
 
@@ -13,7 +47,7 @@ The client component is built with `yarn`. The client contains the webapp in the
 	$ yarn
 
 	
-## The Server 
+### The Server 
 
 The server component is built with `maven`. To build the server run:
 
@@ -21,21 +55,26 @@ The server component is built with `maven`. To build the server run:
 	$ mvn clean install
 	
 	
-### Eclipse workspace
+## Import the Open-BPMN Plugin
 
-The server/editor part consists of a set of [Eclipse](https://www.eclipse.org/ide/) plugins that have to be imported into your Eclipse IDE workspace.
-Open an Eclipse instance and workspace of your choice then open the import menu (`File -> Import...`).
-Choose `Maven -> Existing Maven Projects` and click `Next >`.
-Select the '/server/' directory as the `Root Directory`. Make sure that all projects are selected and click finish.
+Now you can import the Open-BPMN Editor project form the [Open-BPMN Eclipse Integration project](https://github.com/imixs/open-bpmn-eclipse-integration).
 
-To resolve all compilation errors you have to set the correct target platform.
-Got to the preferences (`Window -> Preferences`) and navigate to the target platform options (`Plug-in Development -> Target Platform`)-
-Selected the `2021-03-Release` target definition and click `Apply`.
-Once the target platform has been resolved there should be no more compilation errors.
+ - server/open-bpmn.eclipse.editor
 
 
+## Start Open-BPMN for Eclipse
 
-## Running/Debugging 
+Finally, you can now start an Eclipse Application containing the Open-BPMN  plug-in project by using the `Open-BPMN.launch` launch configuration provided in this project. The Open-BPMN Editor is registered for any `.bpmn` files. 
+
+
+
+# Open BPMN Client Part
+
+The client part is mainly defined by the [Open-BPMN Core Project](https://github.com/imixs/open-bpmn). But some integration code is needed and defined in `/client/' . For Example you will finde there the launcher classes and the .css definitions.
+
+
+
+# Running/Debugging 
 
 To test the Open-BPMN Eclipse Integration a launch configuration is provided. In your [Eclipse Workspace](#eclipse-workspace) navigate to the
 `org.openbpmn.eclipse.integration.editor` plugin. Start or debug the project by via right-clicking on the `Open-BPMN.launch` file (`Run as -> Open-BPMN`).
