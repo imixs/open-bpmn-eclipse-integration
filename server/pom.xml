@@ -179,7 +179,7 @@
 						<artifact>
 							<groupId>org.imixs.bpmn</groupId>
 							<artifactId>org.openbpmn.eclipse.integration.parent</artifactId>
-							<classifier>org.openbpmn.eclipse.integration.target/r2022-12</classifier>
+							<classifier>org.openbpmn.eclipse.integration.target/r2023-09</classifier>
 							<version>${project.version}</version>
 						</artifact>
 					</target>

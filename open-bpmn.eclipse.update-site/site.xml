@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/open_bpmn.eclipse.feature_1.0.0.202407121312.jar" id="open_bpmn.eclipse.feature" version="1.0.0.202407121312"/>
+   <feature url="features/open_bpmn.eclipse.feature_1.0.0.202407122115.jar" id="open_bpmn.eclipse.feature" version="1.0.0.202407122115">
+      <category name="open-bpmn"/>
+   </feature>
+   <category-def name="open-bpmn" label="Open-BPMN"/>
 </site>
