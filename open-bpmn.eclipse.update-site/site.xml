@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/open_bpmn.eclipse.feature_1.0.0.202407121312.jar" id="open_bpmn.eclipse.feature" version="1.0.0.202407121312"/>
+</site>
