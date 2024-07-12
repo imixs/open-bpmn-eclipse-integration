@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0
 Bundle-ClassPath: .,
  lib/open-bpmn.server-1.2.1-SNAPSHOT-glsp.jar
 Bundle-Activator: org.openbpmn.eclipse.glsp.editor.Activator
-Bundle-Vendor: Eclipse GLSP
+Bundle-Vendor: Imixs
 Require-Bundle: org.eclipse.elk.alg.common;bundle-version="0.8.1",
  org.eclipse.elk.alg.layered;bundle-version="0.8.1",
  org.eclipse.elk.graph.text;bundle-version="0.8.1",

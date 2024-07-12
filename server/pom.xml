@@ -22,10 +22,17 @@
 
 	<developers>
 		<developer>
-			<name>Eclipse GLSP Project</name>
-			<email>glsp-dev@eclipse.org</email>
-			<organization>Eclipse GLSP</organization>
-			<organizationUrl>https://projects.eclipse.org/projects/ecd.glsp</organizationUrl>
+			<id>rsoika</id>
+			<name>Ralph Soika</name>
+			<email>ralph.soika@imixs.com</email>
+			<url>http://blog.imixs.org/</url>
+			<organization>Imixs Software Solutions GmbH</organization>
+			<organizationUrl>http://www.imixs.com</organizationUrl>
+			<roles>
+				<role>developer</role>
+				<role>testing</role>
+			</roles>
+			<timezone>2</timezone>
 		</developer>
 	</developers>
 

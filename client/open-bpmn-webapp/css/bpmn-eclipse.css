@@ -15,7 +15,10 @@
     stroke-width: 0.5;
 }
 
-
+.tool-palette .palette-body .tool-button {
+    background: #fff;
+    color: #333;
+}
 
 .bpmn-property-panel {
     background: #ffffff;
@@ -64,13 +67,9 @@
 }
 
 
-
-
 .bpmn-properties-body .control.text-file-editor>label .file-selector {
     color: #0090f1;
 }
-
-
 
 .input-description {
     color: #666;
@@ -81,12 +80,47 @@
 .categorization>.categorization-master {
     background: #fff;
   }
-  
-  .categorization>.categorization-master ul>li>span:hover {
-    background: #eae8e6;
-  }
-  
-  .categorization>.categorization-master ul>li.selected>span {
-    background: #f6f5f4;
-    color: black;
-  }
+
+.categorization>.categorization-master ul>li>span:hover {
+background: #eae8e6;
+}
+
+.categorization>.categorization-master ul>li.selected>span {
+background: #f6f5f4;
+color: black;
+}
+
+
+.BPMNLabel .bpmn-text-node text {
+    fill: #333;
+}
+
+.pool>.pool_header {
+    fill: #dddddd;
+    stroke: #0090f1;
+}
+
+.pool>.sprotty-node {
+    fill: #f3f3f3;
+    stroke: #0090f1;
+}
+
+
+.pool .pool_header text {
+    fill: #333;
+}
+
+.lane>.lane_header {
+    fill: #dddddd;
+}
+
+
+.lane .lane_header text {
+    fill: #333;
+}
+
+.control>input, .control>select, .array-table-layout td input, .array-table-layout td select {
+    background: #fff !important;
+    color: #616161;
+    border: 1px solid #cecece;
+}
