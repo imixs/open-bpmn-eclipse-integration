@@ -6,7 +6,7 @@
 	<groupId>org.imixs.bpmn</groupId>
 	<artifactId>org.openbpmn.eclipse.integration.parent</artifactId>
 	<description>Open BPMN - Eclipse Integration</description>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>GLSP Eclipse IDE Integration Parent</name>
@@ -47,10 +47,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.source>17</java.source>
 		<java.target>17</java.target>
-		<project.build.java.target>1.8</project.build.java.target>
-		<tycho-version>2.7.5</tycho-version>
-		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
-		<checkstyle.plugin>3.1.2</checkstyle.plugin>
+		<project.build.java.target>1.7</project.build.java.target>
+		<tycho-version>4.0.8</tycho-version>
+		<maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
+		<checkstyle.plugin>3.4.0</checkstyle.plugin>
 		<checkstyle>8.44</checkstyle>
 	</properties>
 
@@ -67,7 +67,7 @@
 		<module>org.openbpmn.eclipse.integration.target</module>
 		<!-- <module>releng</module> -->
 	</modules>
-	
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<pluginManagement>
@@ -179,7 +179,9 @@
 						<artifact>
 							<groupId>org.imixs.bpmn</groupId>
 							<artifactId>org.openbpmn.eclipse.integration.parent</artifactId>
-							<classifier>org.openbpmn.eclipse.integration.target/r2023-09</classifier>
+							<!--
+							<classifier>org.openbpmn.eclipse.integration.target/r2023-09</classifier> -->
+							<classifier>org.openbpmn.eclipse.integration.target/r2024-09</classifier>
 							<version>${project.version}</version>
 						</artifact>
 					</target>

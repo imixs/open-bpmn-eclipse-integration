@@ -3,7 +3,7 @@
       id="open_bpmn.eclipse.feature"
       label="Open-BPMN Modeler Plugin"
       version="1.0.0.qualifier"
-      provider-name="Imixs">
+      provider-name="Imixs Software Solutions GmbH">
 
    <description url="https://www.open-bpmn.org">
       Open BPMN is a free and open modeling platform to view, create
@@ -678,196 +678,12 @@ with the GNU Classpath Exception which is available at https://www.gnu.org/softw
     from your version.
    </license>
 
-   <includes
-         id="org.eclipse.glsp.feature"
-         version="0.0.0"/>
-
    <plugin
          id="org.openbpmn.eclipse.integration.editor"
          version="0.0.0"/>
 
    <plugin
-         id="org.eclipse.glsp.graph"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.glsp.graph.source"
-         version="0.0.0"/>
-
-   <plugin
          id="org.eclipse.glsp.ide.editor"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.glsp.layout"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.glsp.layout.source"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.glsp.server"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.glsp.server.source"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.glsp.server.websocket"
-         version="0.0.0"/>
-
-   <plugin
-         id="javax.websocket"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.websocket.core.client"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.websocket.core.common"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.websocket.core.server"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.websocket.javax.client"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.websocket.javax.common"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.websocket.javax.server"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.websocket.servlet"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.lsp4j.websocket"
-         version="0.0.0"/>
-
-   <plugin
-         id="com.google.guava"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.apache.log4j"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.apache.logging.log4j.api"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.apache.logging.log4j.core"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.apache.logging.log4j.slf4j2-impl"
-         version="0.0.0"/>
-
-   <plugin
-         id="com.google.inject"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.util"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.servlet"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.webapp"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.elk.alg.common"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.elk.alg.layered"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.elk.core"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.elk.graph"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.elk.graph.text"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.xtext.xbase.lib"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.elk.graph.text.source"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.xtext"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.xtext.util"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.xtend.lib"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.xtend.lib.macro"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.antlr.runtime"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.http"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.client"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.io"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.util.ajax"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.xml"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.server"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.alpn.client"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.jetty.security"
          version="0.0.0"/>
 
 </feature>

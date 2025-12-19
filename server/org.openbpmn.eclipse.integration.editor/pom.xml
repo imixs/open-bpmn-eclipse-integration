@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>org.imixs.bpmn</groupId>
 		<artifactId>org.openbpmn.eclipse.integration.parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
