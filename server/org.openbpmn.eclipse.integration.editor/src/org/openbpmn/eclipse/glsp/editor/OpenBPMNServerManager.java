@@ -17,11 +17,11 @@ package org.openbpmn.eclipse.glsp.editor;
 
 import java.net.URL;
 
-import org.eclipse.glsp.server.di.ServerModule;
 import org.eclipse.elk.alg.layered.options.LayeredMetaDataProvider;
 import org.eclipse.glsp.ide.editor.GLSPServerManager;
 import org.eclipse.glsp.ide.editor.di.IdeServerModule;
 import org.eclipse.glsp.layout.ElkLayoutEngine;
+import org.eclipse.glsp.server.di.ServerModule;
 
 public class OpenBPMNServerManager extends GLSPServerManager {
 

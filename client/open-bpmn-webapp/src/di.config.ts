@@ -14,27 +14,10 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
 import { createBPMNDiagramContainer } from '@open-bpmn/open-bpmn-glsp/lib';
-
-//import { ConsoleLogger, LogLevel, TYPES } from '@eclipse-glsp/client';
 import { ConsoleLogger, IDiagramOptions, LogLevel, TYPES, bindOrRebind, createDiagramOptionsModule } from '@eclipse-glsp/client';
-
-//import { eclipseCopyPasteModule, eclipseDeleteModule, EclipseGLSPDiagramServer } from '@eclipse-glsp/ide';
 import { ECLIPSE_DEFAULT_MODULE_CONFIG } from '@eclipse-glsp/ide';
-
 import { Container } from 'inversify';
-//import '../css/diagram.css';
 import '../css/bpmn-eclipse.css';
-
-// export default function createContainer(widgetId: string): Container {
-//     const container = createBPMNDiagramContainer(widgetId);
-//     container.bind(TYPES.ModelSource).to(EclipseGLSPDiagramServer).inSingletonScope();
-//     container.rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
-//     container.rebind(TYPES.LogLevel).toConstantValue(LogLevel.warn);
-//     container.load(eclipseCopyPasteModule);
-//     container.load(eclipseDeleteModule);
-//     return container;
-// }
-
 
 export default function createContainer(options: IDiagramOptions): Container {
     const container = createBPMNDiagramContainer(createDiagramOptionsModule(options), ECLIPSE_DEFAULT_MODULE_CONFIG);
