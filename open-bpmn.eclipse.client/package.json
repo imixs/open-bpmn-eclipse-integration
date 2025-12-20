@@ -1,0 +1,47 @@
+{
+  "name": "parent",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://www.imixs.org",
+  "bugs": "https://github.com/imixs/open-bpmn/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imixs/open-bpmn-eclipse-integration.git"
+  },
+  "license": "(EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0 OR MIT)",
+  "author": {
+    "name": "Imixs Software Solutions GmbH"
+  },
+  "scripts": {
+    "all": "yarn clean && yarn install && yarn lint",
+    "build": "yarn compile && yarn eclipse bundle",
+    "clean": "lerna run clean",
+    "compile": "tsc -b",
+    "copyClient": "copyfiles -f ./open-bpmn-eclipse/app/* ../glsp-server/org.eclipse.glsp.example.javaemf.editor/diagram",
+    "eclipse": "yarn --cwd open-bpmn-eclipse",
+    "lint": "eslint --ext .ts,.tsx .",
+    "lint:ci": "yarn lint --output-file eslint_report.json --format json",
+    "prepare": "yarn build && yarn copyClient",
+    "watch": "concurrently --kill-others -n tsc,app -c red,yellow \"tsc -b -w --preserveWatchOutput\" \"yarn -s eclipse watch:bundle\""
+  },
+  "resolutions": {
+    "@open-bpmn/open-bpmn-model": "file:./../../open-bpmn/open-bpmn.glsp-client/open-bpmn-model/",
+    "@open-bpmn/open-bpmn-glsp": "file:./../../open-bpmn/open-bpmn.glsp-client/open-bpmn-glsp/",
+    "@open-bpmn/open-bpmn-properties": "file:./../../open-bpmn/open-bpmn.glsp-client/open-bpmn-properties/",
+    "string-width": "^4.2.3"
+  },
+  "devDependencies": {
+    "@eclipse-glsp/config": "2.5.0",
+    "concurrently": "^8.2.2",
+    "copyfiles": "^2.4.1",
+    "lerna": "8.1.9",
+    "typescript": "5.5.3"
+  },
+  "workspaces": [
+    "open-bpmn-eclipse"
+  ],
+  "engines": {
+    "node": ">=20",
+    "yarn": ">=1.7.0 <2.x.x"
+  }
+}

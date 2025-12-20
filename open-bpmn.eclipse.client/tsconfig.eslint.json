@@ -1,8 +1,9 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@eclipse-glsp/ts-config/tsconfig.json",
   "compilerOptions": {
     "noEmit": true
   },
   "exclude": ["**/node_modules", "**/.eslintrc.js"],
-  "include": ["open-bpmn-webapp/src"]
+  "include": ["open-bpmn-eclipse/src"]
 }

@@ -1,0 +1,12 @@
+{
+  "extends": "@eclipse-glsp/ts-config",
+  "include": [],
+  "compilerOptions": {
+    "composite": true
+  },
+  "references": [
+    {
+      "path": "./open-bpmn-eclipse"
+    }
+  ]
+}

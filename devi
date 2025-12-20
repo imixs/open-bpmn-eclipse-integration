@@ -1,0 +1,47 @@
+#!/bin/bash
+
+############################################################
+# The Imixs Developer Script
+# start, build, deploy
+# 
+############################################################
+
+# Helper function to remove the '-' char from a param
+strip_dash() {
+    echo "$1" | sed 's/^-//'
+}
+
+    echo "     _            _   _          _  "     
+    echo "  __| | _____   _(_) | |__   ___| |_ __"  
+    echo " / _\` |/ _ \\ \\ / / | | '_ \\ / _ \\ | \'_ \\" 
+    echo "| (_| |  __/\ V /| | | | | |  __/ | |_) |"
+    echo " \__,_|\___| \_/ |_| |_| |_|\___|_| .__/ "
+    echo "                                  |_|  "
+    echo "    Imixs Developer Script..."
+    echo "_________________________________________"
+
+# now verify params...
+
+
+if [[ "$(strip_dash $1)" == "clean" ]]; then
+    echo " clean project..."
+    yarn clean
+fi
+
+if [[ "$(strip_dash $1)" == "build" ]]; then
+    echo " build with yarn..."
+    yarn         
+fi
+
+
+# Überprüfen, ob keine Parameter übergeben wurden - standard build
+if [[ $# -eq 0 ]]; then
+
+    echo " Run with ./dev.sh -XXX"
+    echo " "
+    echo "   -clean      : clean project"
+    echo "   -build      : build project "
+    echo "_______________________________________________________________________"
+    echo " "
+
+fi

@@ -1,0 +1,64 @@
+{
+  "name": "open-bpmn-eclipse",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "Open-BPMN frontend code for Eclipse integration",
+  "keywords": [
+    "glsp",
+    "bpmn",
+    "open-bpmn",
+    "diagram"
+  ],
+  "homepage": "https://www.imixs.org",
+  "bugs": "https://github.com/imixs/open-bpmn/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imixs/open-bpmn-eclipse-integration.git"
+  },
+  "license": "(EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0 OR MIT)",
+  "author": {
+    "name": "Imixs Software Solutions GmbH"
+  },
+  "contributors": [
+    {
+      "name": "Imixs Software Solutions GmbH",
+      "email": "info@imixs.com",
+      "url": "https://www.imixs.com"
+    }
+  ],
+  "main": "lib/index",
+  "types": "lib/index",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc- b && yarn bundle",
+    "bundle": "webpack",
+    "clean": "rimraf lib tsconfig.tsbuildinfo app/bundle.js app/bundle.js.map",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "watch": "tsc -w",
+    "watch:bundle": "webpack --watch"
+  },
+  "dependencies": {
+    "@open-bpmn/open-bpmn-glsp": "file:./../../../open-bpmn/open-bpmn.glsp-client/open-bpmn-glsp/",
+    "@eclipse-glsp/ide": "2.5.0"
+  },
+  "devDependencies": {
+    "@eclipse-glsp/config": "2.5.0",
+    "@types/node": "18.x",
+    "concurrently": "^8.2.2",
+    "lerna": "^8.1.7",
+    "typescript": "^5.5.3",
+    "@vscode/codicons": "^0.0.25",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "source-map-loader": "^4.0.1",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

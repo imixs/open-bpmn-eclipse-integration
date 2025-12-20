@@ -1,16 +1,46 @@
 # Open-BPMN Eclipse Integration
 
-This project provides a Eclipse plugin to run [Open-BPMN](https://github.com/imixs/open-bpmn) in a Eclipse IDE.
+This project provides the Eclipse plugin to run [Open-BPMN](https://github.com/imixs/open-bpmn) in a Eclipse IDE.
 This implementation is based on the [Eclipse GLSP - Project Template](https://github.com/eclipse-glsp/glsp-examples/tree/master/project-templates/java-emf-eclipse). You will find more details there as also in the [Eclipse GLSP Eclipse IDE Integration project](https://github.com/eclipse-glsp/glsp-eclipse-integration).
+
+## Project structure
+
+This project integrates the [open-bpmn.glsp-client](https://github.com/imixs/open-bpmn/tree/master/open-bpmn.glsp-client) into a Eclipse Plugin using the following project structure:
+
+- [`open-bpmn.eclipse.client`](open-bpmn.eclipse.client) - NodeJS Code
+  - [`open-bpmn-eclipse`](open-bpmn.eclipse.client/open-bpmn-eclipse): glue code for integrating the editor into Eclipse
+- [`glsp-server`](glsp-server) - Java Code
+  - [`org.eclipse.glsp.example.javaemf.server`](glsp-server/org.eclipse.glsp.example.javaemf.server/): GLSP server for the Tasklist diagram language
+    - [`src`](glsp-server/org.eclipse.glsp.example.javaemf.server/src/org/eclipse/glsp/example/javaemf/server/): dependency injection module of the server and diagram configuration
+    - [`src/handler`](glsp-server/org.eclipse.glsp.example.javaemf.server/src/org/eclipse/glsp/example/javaemf/server/handler/): handlers for the diagram-specific actions
+    - [`src/model`](glsp-server/org.eclipse.glsp.example.javaemf.server/src/org/eclipse/glsp/example/javaemf/server/model): all source model, graphical model and model state related files
+    - [`src/launch`](glsp-server/org.eclipse.glsp.example.javaemf.server/src/org/eclipse/glsp/example/javaemf/server/launch): contains the Java GLSP server launcher
+    - [`src/palette`](glsp-server/org.eclipse.glsp.example.javaemf.server/src/org/eclipse/glsp/example/javaemf/server/palette/): custom palette item provider
+  - [`org.eclipse.glsp.example.javaemf.editor](glsp-server/org.eclipse.glsp.example.javaemf.editor/): plugin providing the Eclipse Tasklist diagram editor
+  - [`workspace/TaskListExample](glsp-server/workspace/TaskListExample/) A sample eclipse project containing a Tasklist diagram.
+
+The most important entry points are:
+
+- [`glsp-client/tasklist-glsp/src/tasklist-diagram-module.ts`](glsp-client/tasklist-glsp/src/tasklist-diagram-module.ts) dependency injection module of the client
+- [`glsp-client/tasklist-eclipse/src/app`](glsp-client/tasklist-eclipse/src/app.ts): Browser application bundle
+- [`glsp-server/org.eclipse.glsp.example.javaemf.editor/src/org/eclipse/glsp/example/javaemf/editor/TaskListEclipseDiagramModule.java`](glsp-server/org.eclipse.glsp.example.javaemf.editor/src/org/eclipse/glsp/example/javaemf/editor/TaskListEclipseDiagramModule.java): dependency injection module of the Eclipse ide integration
+- [`glsp-server/org.eclipse.glsp.example.javaemf.editor/src/org/eclipse/glsp/example/javaemf/editor/TaskListServerManager.java`](glsp-server/org.eclipse.glsp.example.javaemf.editor/src/org/eclipse/glsp/example/javaemf/editor/TaskListServerManager.java): the server manager counterpart for the Tasklist editor
+- [`glsp-server/org.eclipse.glsp.example.javaemf.editor/plugin.xml`](glsp-server/org.eclipse.glsp.example.javaemf.editor/plugin.xml): plugin definition declaring the diagram editor extensions.
+- [`glsp-server/org.eclipse.glsp.example.javaemf.target/r2021-03.targe`](glsp-server/org.eclipse.glsp.example.javaemf.target/r2021-03.target): the target platform definition
 
 # Development Setup
 
 The following section is important if you plan to develop the Open-BPMN Eclipse Plugin or contribute to the project. If you just want to use Open-BPMN in your Eclipse IDE see the [Open-BPMN Website](https://www.open-bpmn.org)
 
-To develop and build the Eclipse Plugin you need to setup your Eclipse Workspace first.
+**Note:** For development make sure the [open-bpmn]() project is part of your workspace, as the eclipse integration project refers to these sources!
+
+Make sure you are using node 20
+
+`$ nvm use 20`
 
 ## Import the glsp-eclipse-integration project
 
+To develop and build the Eclipse Plugin you need to setup your Eclipse Workspace first.
 First you need to checkout the latest version from the [Eclipse GLSP Eclipse IDE Integration project from Github](https://github.com/eclipse-glsp/glsp-eclipse-integration)
 
 Switch into the `/server/` directory and build the project with maven

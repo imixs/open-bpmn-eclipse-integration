@@ -1,0 +1,24 @@
+node_modules
+lib
+
+**/app/bundle.js
+**/app/bundle.js.map
+**/app/*.bundle.js
+**/app/*.bundle.js.map
+
+*.log
+*.ttf
+tsconfig.tsbuildinfo
+eslint.xml
+
+
+## Node.js/yarn/lerna ##
+node_modules
+node_modules/.yarn-integrity
+.browser_modules
+lib
+*.log
+tsconfig.tsbuildinfo
+gen-webpack.config.js
+gen-webpack.node.config.js
+open-bpmn.glsp-client/open-bpmn-app/src-gen/

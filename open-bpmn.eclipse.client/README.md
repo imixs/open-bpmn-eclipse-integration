@@ -4,7 +4,6 @@
 
 This directory provides the initial setup of the package architecture and environment for a GLSP Client that is integrated into an Eclipse IDE.
 
-
 ## Building
 
 To build all GLSP client packages simply execute the following in this directory:
@@ -20,8 +19,8 @@ Eclipse plugin
 
 Alternatively to executing these commands manually, you can also use the preconfigured VSCode tasks (via Menu _Terminal > Run Task..._):
 
--   `Build TaskList GLSP Client example`
--   `Copy TaskList GLSP Client bundle`
+- `Build Open-BPMN GLSP  example`
+- `Copy Open-BPMN GLSP Client bundle`
 
 ## More information
 

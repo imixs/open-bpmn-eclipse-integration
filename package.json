@@ -1,0 +1,32 @@
+{
+    "private": "true",
+    "name": "root",
+    "license": "(EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0 OR MIT)",
+    "scripts": {
+        "prepare": "yarn build",
+        "clean": "rm -rf node_modules yarn.lock && rm -rf open-bpmn.eclipse.client/node_modules open-bpmn.eclipse.client/yarn.lock open-bpmn.eclipse.client/open-bpmn-eclipse/node_modules",
+        "reset": "yarn clean:all && yarn install",
+        "build": "yarn build:client && yarn build:server",
+        "build:client": "yarn --cwd open-bpmn.eclipse.client install",
+        "build:server": "cd open-bpmn.eclipse.server && mvn --batch-mode clean verify"
+    },
+    "resolutions": {
+        "@open-bpmn/open-bpmn-glsp": "file:./../open-bpmn/open-bpmn.glsp-client/open-bpmn-glsp/",
+        "@open-bpmn/open-bpmn-model": "file:./../open-bpmn/open-bpmn.glsp-client/open-bpmn-model/",
+        "@open-bpmn/open-bpmn-properties": "file:./../open-bpmn/open-bpmn.glsp-client/open-bpmn-properties/",
+        "string-width": "4.2.3",
+        "**/vscode-jsonrpc": "8.2.0"
+    },
+    "devDependencies": {
+        "@eclipse-glsp/dev": "2.4.0",
+        "@types/node": "18.x",
+        "@types/vscode": "^1.54.0",
+        "inversify": "6.0.2",
+        "lerna": "^8.1.7",
+        "typescript": "^5.5.3"
+    },
+    "engines": {
+        "node": ">=16.18",
+        "yarn": ">=1.7.0 <2"
+    }
+}
