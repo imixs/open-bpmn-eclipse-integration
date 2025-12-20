@@ -15,7 +15,7 @@
   "scripts": {
     "all": "yarn clean && yarn install && yarn lint",
     "build": "yarn compile && yarn eclipse bundle",
-    "clean": "lerna run clean",
+    "clean": "rm -rf node_modules yarn.lock && rm -rf open-bpmn.eclipse.client/node_modules open-bpmn.eclipse.client/yarn.lock open-bpmn.eclipse.client/open-bpmn-eclipse/node_modules",
     "compile": "tsc -b",
     "copyClient": "copyfiles -f ./open-bpmn-eclipse/app/* ../glsp-server/org.eclipse.glsp.example.javaemf.editor/diagram",
     "eclipse": "yarn --cwd open-bpmn-eclipse",
@@ -32,8 +32,12 @@
   },
   "devDependencies": {
     "@eclipse-glsp/config": "2.5.0",
+    "@eclipse-glsp/ide": "2.5.0",
     "concurrently": "^8.2.2",
     "copyfiles": "^2.4.1",
+    "inversify": "6.0.2",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.54.0",
     "lerna": "8.1.9",
     "typescript": "5.5.3"
   },

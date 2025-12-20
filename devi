@@ -25,12 +25,16 @@ strip_dash() {
 
 if [[ "$(strip_dash $1)" == "clean" ]]; then
     echo " clean project..."
+    cd open-bpmn.eclipse.client
     yarn clean
+    cd ..
 fi
 
 if [[ "$(strip_dash $1)" == "build" ]]; then
     echo " build with yarn..."
+    cd open-bpmn.eclipse.client
     yarn         
+    cd ..
 fi
 
 
