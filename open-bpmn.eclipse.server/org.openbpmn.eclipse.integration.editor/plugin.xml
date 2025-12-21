@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+      <extension
+            point="org.eclipse.glsp.ide.editor">
+            <configuration
+                  editorId="org.openbpmn.eclipse.integration.editor"
+                  glspId="openbpmn"
+                  serverManagerClass="org.openbpmn.eclipse.glsp.editor.OpenBPMNServerManager">
+            </configuration>
+      </extension>
+      <extension
+            point="org.eclipse.ui.editors"> 
+            <editor
+                  class="org.eclipse.glsp.ide.editor.ui.GLSPDiagramEditor"
+                  contributorClass="org.eclipse.glsp.ide.editor.ui.GLSPDiagramEditorActionContributor"
+                  default="true"
+                  extensions="bpmn"
+                  id="org.openbpmn.eclipse.integration.editor"
+                  name="Open-BPMN Diagram Editor">
+            </editor>
+      </extension>
+</plugin>

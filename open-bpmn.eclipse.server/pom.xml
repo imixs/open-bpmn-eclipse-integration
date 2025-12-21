@@ -43,29 +43,39 @@
 		<tag>HEAD</tag>
 	</scm>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.source>17</java.source>
-		<java.target>17</java.target>
-		<project.build.java.target>1.7</project.build.java.target>
-		<tycho-version>4.0.8</tycho-version>
-		<maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
-		<checkstyle.plugin>3.4.0</checkstyle.plugin>
-		<checkstyle>8.44</checkstyle>
-	</properties>
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>sonatype</id>
-			<name>Sonatype</name>
-			<url>https://oss.sonatype.org/content/groups/public</url>
+			<name>Central Portal Snapshots</name>
+			<id>central-portal-snapshots</id>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
+	<properties>
+		<!-- General build environment plugin versions -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.source>17</java.source>
+		<java.target>17</java.target>
+		<checkstyle>8.44</checkstyle>
+		<checkstyle.plugin>3.1.2</checkstyle.plugin>
+		<emfcloud.checkstyle.version>0.1.0-SNAPSHOT</emfcloud.checkstyle.version>
+		<maven.build.helper.plugin.version>3.3.0</maven.build.helper.plugin.version>
+		<maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+		<maven.resources.plugin.version>2.7</maven.resources.plugin.version>
+		<tycho-version>4.0.8</tycho-version>
+	</properties>
 
 	<modules>
 		<module>org.openbpmn.eclipse.integration.editor</module>
 		<module>org.openbpmn.eclipse.integration.target</module>
-		<!-- <module>releng</module> -->
 	</modules>
 
 	<build>
@@ -85,20 +95,8 @@
 					<extensions>true</extensions>
 				</plugin>
 				<plugin>
-					<!-- enable source bundle generation -->
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-source-plugin</artifactId>
-					<version>${tycho-version}</version>
-				</plugin>
-				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>target-platform-configuration</artifactId>
-					<version>${tycho-version}</version>
-				</plugin>
-				<plugin>
-					<!-- enable automated version updates -->
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-versions-plugin</artifactId>
 					<version>${tycho-version}</version>
 				</plugin>
 			</plugins>
@@ -106,7 +104,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
+				<version>${maven.compiler.plugin.version}</version>
 				<configuration>
 					<source>${java.source}</source>
 					<target>${java.target}</target>
@@ -115,7 +113,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.7</version>
+				<version>${maven.resources.plugin.version}</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
 				</configuration>
@@ -136,27 +134,10 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<!-- enable automated version updates -->
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-versions-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<!-- enable source bundle generation -->
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>plugin-source</id>
-						<goals>
-							<goal>plugin-source</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
 				<configuration>
+					<includePackedArtifacts>true</includePackedArtifacts>
 					<targetDefinitionIncludeSource>honor</targetDefinitionIncludeSource>
 					<environments>
 						<environment>
@@ -220,18 +201,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>release</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-
-			<modules>
-				<module>plugins/org.eclipse.glsp.ide.editor</module>
-				<module>releng</module>
-			</modules>
-		</profile>
-	</profiles>
 </project>
